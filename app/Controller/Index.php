@@ -9,6 +9,6 @@ class Index
 {
     public static function sayHello()
     {
-        echo "Hello";
+        dump("Hello");
     }
 }
