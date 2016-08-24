@@ -20,4 +20,4 @@ if (DEBUG) {
     ini_set('display_error', 'Off');
 }
 
-app\Controller\Index::sayHello();
+core\Main::run();
