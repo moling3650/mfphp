@@ -7,7 +7,7 @@ namespace app\Controller;
 
 class Index
 {
-    public static function sayHello()
+    public static function index()
     {
         dump("Hello");
     }

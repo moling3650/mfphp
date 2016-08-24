@@ -7,8 +7,9 @@ namespace core;
 
 class Main
 {
-    public function run()
+    public static function run()
     {
-        dump('main ok');
+        $route = new \core\lib\Route();
+        dump($route);
     }
 }
