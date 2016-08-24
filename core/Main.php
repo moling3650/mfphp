@@ -10,6 +10,14 @@ class Main
     public static function run()
     {
         $route = new \core\lib\Route();
-        dump($route);
+        $Controller = '\app\Controller\\'.$route->controller;
+        $action = $route->action;
+
+        try {
+            $controller = new $Controller();
+            $controller->$action();
+        } catch (\Exception $e) {
+            throw new \Exception('找不到控制器:'.$Controller);
+        }
     }
 }
