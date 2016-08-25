@@ -12,6 +12,6 @@ class Loader
     // 自动加载类
     public static function autoload($class)
     {
-        include BASE_DIR.'/'.str_replace('\\', '/', $class).'.php';
+        require_once BASE_DIR.'/'.str_replace('\\', '/', $class).'.php';
     }
 }

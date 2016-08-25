@@ -12,12 +12,8 @@ class Main
         $route = new \core\lib\Route();
         $Controller = '\app\Controller\\'.$route->controller;
         $action = $route->action;
+        $controller = new $Controller();
+        $controller->$action();
 
-        try {
-            $controller = new $Controller();
-            $controller->$action();
-        } catch (\Exception $e) {
-            throw new \Exception('找不到控制器:'.$Controller);
-        }
     }
 }
