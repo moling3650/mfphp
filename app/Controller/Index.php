@@ -9,6 +9,15 @@ class Index
 {
     public static function index()
     {
-        dump("Hello");
+        $db = new \app\Model\Guestbook();
+        // $db->addOne([
+        //     'title' => 'AUTO',
+        //     'content' => 'auto',
+        //     ]);
+        // $data = $db->getAll();
+        // dump($data);
+        // $data = $db->countAll();
+        // dump($data);
+        \core\lib\View::display();
     }
 }
