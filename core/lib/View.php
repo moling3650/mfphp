@@ -5,15 +5,15 @@
  */
 namespace core\lib;
 
+use core\lib\Conf;
+
 class View
 {
-    public static function display()
+    public static function display($template, $data=[])
     {
         \Twig_Autoloader::register();
-        $loader = new \Twig_Loader_Filesystem(BASE_DIR.'/app/View');
-        $twig = new \Twig_Environment($loader, array(
-            // 'cache' => '/path/to/compilation_cache',
-        ));
-        echo $twig->render('index.html', ['name' => 'Fabien']);
+        $loader = new \Twig_Loader_Filesystem(Conf::get('twig', 'VIEW_DIR'));
+        $twig = new \Twig_Environment($loader, Conf::get('twig', 'ENVIRONMENT'));
+        echo $twig->display($template, $data);
     }
 }
