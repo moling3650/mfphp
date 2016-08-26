@@ -9,11 +9,16 @@ use core\lib\Conf;
 
 class View
 {
-    public static function display($template, $data=[])
+    public static function render_template($template, $data=[])
     {
         \Twig_Autoloader::register();
         $loader = new \Twig_Loader_Filesystem(Conf::get('twig', 'VIEW_DIR'));
         $twig = new \Twig_Environment($loader, Conf::get('twig', 'ENVIRONMENT'));
         echo $twig->display($template, $data);
+    }
+
+    public function jsonify($data, $options=JSON_UNESCAPED_UNICODE, $depth=512)
+    {
+        echo json_encode($data, $options, $depth);
     }
 }

@@ -5,17 +5,20 @@
  */
 namespace app\Controller;
 
+use app\Model\Guestbook;
+use core\lib\View;
+
 class Index
 {
     public static function index()
     {
-        $gb = new \app\Model\Guestbook();
+        $gb = new Guestbook();
         $data = $gb->getAll();
-        \core\lib\View::display('index.html', ['posts' => $data]);
+        View::render_template('index.html', ['posts' => $data]);
     }
 
     public function create()
     {
-        \core\lib\View::display('create.html');
+        View::render_template('create.html');
     }
 }
