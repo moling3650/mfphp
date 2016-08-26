@@ -5,13 +5,30 @@
  */
 namespace app\Controller;
 
+use app\Model\Guestbook;
 use core\lib\View;
 
 class Api
 {
     public function add()
     {
-        // View::jsonify($_POST);
+        if ($_POST) {
+            $data = [
+                'title' => $_POST['title'],
+                'content' => $_POST['content'],
+                'create_at' => time()
+            ];
+            $gb = new Guestbook();
+            $gb->addOne($data);
+        }
+        View::redirect('/');
+    }
+
+    public function del()
+    {
+        $id = intval($_GET['id']);
+        $gb = new Guestbook();
+        $gb->delOne($id);
         View::redirect('/');
     }
 }
