@@ -21,4 +21,9 @@ class View
     {
         echo json_encode($data, $options, $depth);
     }
+
+    public function redirect($url)
+    {
+        header('Location:'.$url);
+    }
 }
