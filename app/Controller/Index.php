@@ -9,15 +9,13 @@ class Index
 {
     public static function index()
     {
-        $db = new \app\Model\Guestbook();
-        // $db->addOne([
-        //     'title' => 'AUTO',
-        //     'content' => 'auto',
-        //     ]);
-        // $data = $db->getAll();
-        // dump($data);
-        // $data = $db->countAll();
-        // dump($data);
-        \core\lib\View::display();
+        $gb = new \app\Model\Guestbook();
+        $data = $gb->getAll();
+        \core\lib\View::display('index.html', ['posts' => $data]);
+    }
+
+    public function create()
+    {
+        \core\lib\View::display('create.html');
     }
 }
