@@ -8,6 +8,7 @@
         <time datetime="{{post.create_at|date('Y-m-d')}}">
             {{post.create_at|date('Y-m-d H:i:s')}}
         </time>
+        <a href="/Index/edit/?id={{post.id}}">修改</a>
         <a href="/Api/del/?id={{post.id}}">删除</a>
     </article>
 {% endfor %}

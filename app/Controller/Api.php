@@ -31,4 +31,16 @@ class Api
         $gb->delOne($id);
         View::redirect('/');
     }
+
+    public function edit()
+    {
+        $id = intval($_GET['id']);
+            $data = [
+                'title' => $_POST['title'],
+                'content' => $_POST['content']
+            ];
+        $gb = new Guestbook();
+        $gb->setOne($id, $data);
+        View::redirect('/');
+    }
 }
