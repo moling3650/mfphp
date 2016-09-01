@@ -13,7 +13,9 @@ class Index
     public static function index()
     {
         $gb = new Guestbook();
-        $data = $gb->getAll();
+        $data = $gb->getAll('*', ['ORDER'=>['create_at'=>'DESC']]);
+
+
         View::render_template('index.html', ['posts' => $data]);
     }
 
